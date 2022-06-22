@@ -1,0 +1,33 @@
+#+AUTHOR: Garrett Hill
+#+TITLE: Rust Fortress: Dwarf Fortress Inspired Rust Game
+#+OPTIONS: toc:nil, num:nil
+
+* Frontend
+
+** TODO Tilemap
+   
+** TODO Print to Screen
+
+   
+* Backend
+
+** TODO Design Game Object Heirarchy
+   
+*** TODO Map
+*** TODO Player controllables (PCs)
+*** TODO Friendly non-PCs (NPCs)
+*** TODO Enemy NPCs
+
+    
+** TODO Implement Game Object Heirarchy
+   
+*** TODO Map
+*** TODO Player controllables (PCs)
+*** TODO Friendly non-PCs (NPCs)
+*** TODO Enemy NPCs
+
+    
+** TODO Design Core Engine Loop
+   
+** TODO Implement Core Engine Loop
+   
