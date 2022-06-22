@@ -7,39 +7,25 @@
    
 ** Backend
 
-*** TODO Design Game Object Heirarchy
-
-   - Map
-     
-   - Non-interactable objects
-     - Walls
-     - Decorations
-       
-   - Actors
-     - Player characters (PCs)
-     - Friendly non-player characters (fNPCs)
-     - Enemy non-player characters (eNPCs)
-
-    
-*** TODO Implement Game Object Heirarchy
+*** TODO Game Object Heirarchy
 
    - [ ] Map
-   - [ ]Non-interactable objects
-    - [ ] Walls
-    - [ ] Decorations
-   - [ ] PCs
-   - [ ] fNPCs
-   - [ ] eNPCs
-
+     
+   - [ ] Non-interactable objects
+     - [ ] Walls
+     - [ ] Decorations
+       
+   - [ ] Actors
+     - [ ] Player characters (PCs)
+     - [ ] Friendly non-player characters (fNPCs)
+     - [ ] Enemy non-player characters (eNPCs)
     
-*** TODO Design Core Engine Loop
+*** TODO Core Engine Loop
 
-   - Objects update each "frame"
-   - Objects interact
-     - eNPCs attack PCs
-     - Walls block all actors
-   
-*** TODO Implement Core Engine Loop
+   - [ ] Objects update each "frame"
+   - [ ] Objects interact
+     - [ ] eNPCs attack PCs
+     - [ ] Walls block all actors
    
 ** Frontend
 
