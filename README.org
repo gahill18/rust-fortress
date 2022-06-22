@@ -1,6 +1,50 @@
-#+TITLE: Rust Fortress: A Dwarf Fortess Inspired Game Written in Rust
 #+AUTHOR: Garrett Hill
 #+EMAIL: gahill2018@pm.me
-#+OPTIONS: toc:nil, num:nil
+#+TITLE: Rust Fortress: Dwarf Fortress Inspired Rust Game
+#+OPTIONS: toc:nil, num:nil, inline:t
 
-* TODO Readme
+* Roadmap
+   
+** Backend
+
+*** TODO Design Game Object Heirarchy
+
+   - Map
+     
+   - Non-interactable objects
+     - Walls
+     - Decorations
+       
+   - Actors
+     - Player characters (PCs)
+     - Friendly non-player characters (fNPCs)
+     - Enemy non-player characters (eNPCs)
+
+    
+*** TODO Implement Game Object Heirarchy
+
+   - [ ] Map
+   - [ ]Non-interactable objects
+    - [ ] Walls
+    - [ ] Decorations
+   - [ ] PCs
+   - [ ] fNPCs
+   - [ ] eNPCs
+
+    
+*** TODO Design Core Engine Loop
+
+   - Objects update each "frame"
+   - Objects interact
+     - eNPCs attack PCs
+     - Walls block all actors
+   
+*** TODO Implement Core Engine Loop
+   
+** Frontend
+
+*** TODO Tilemap
+
+   - [ ] Game objects map to ascii chars
+   
+*** TODO Print to Screen
