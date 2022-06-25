@@ -3,26 +3,33 @@
 #+TITLE: Rust Fortress: Dwarf Fortress Inspired Rust Game
 #+OPTIONS: toc:nil, num:nil, inline:t
 
+*This project has been archived, as the design choices I want to implement are easier in other languages.*
+
 * Roadmap
    
 ** Backend
 
 *** TODO Game Object Heirarchy
 
-   - [ ] Map
-     
-   - [ ] Non-interactable objects
-     - [ ] Walls
-     - [ ] Decorations
-       
+   - [ ] World     
+     - [ ] Generated Map
+       - [ ] Top Down 2D world
+       - [ ] Add height layer
+     - [ ] Objects
+       - [ ] Walls
+	      
    - [ ] Actors
+     - [ ] Passive creatures
      - [ ] Player characters (PCs)
      - [ ] Friendly non-player characters (fNPCs)
      - [ ] Enemy non-player characters (eNPCs)
+	 
+   - [ ] UI
+     - [ ] Time/speed indicator
     
 *** TODO Core Engine Loop
 
-   - [ ] Objects update each "frame"
+   - [ ] Objects update each "frame"     
    - [ ] Objects interact
      - [ ] eNPCs attack PCs
      - [ ] Walls block all actors

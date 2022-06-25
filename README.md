@@ -8,16 +8,19 @@
 
 ### TODO Game Object Heirarchy
 
--   [ ] Map
-
--   [ ] Non-interactable objects
-    -   [ ] Walls
-    -   [ ] Decorations
+-   [ ] World     
+    -   [ ] Generated Map
+        -   [ ] Top Down 2D world
+        -   [ ] Add height layer
 
 -   [ ] Actors
+    -   [ ] Passive creatures
     -   [ ] Player characters (PCs)
     -   [ ] Friendly non-player characters (fNPCs)
     -   [ ] Enemy non-player characters (eNPCs)
+
+-   [ ] UI
+    -   [ ] Time/speed indicator
 
 
 ### TODO Core Engine Loop
