@@ -3,8 +3,6 @@
 #+TITLE: Rust Fortress: Dwarf Fortress Inspired Rust Game
 #+OPTIONS: toc:nil, num:nil, inline:t
 
-*This project has been archived, as the design choices I want to implement are easier in other languages.*
-
 * Roadmap
    
 ** Backend

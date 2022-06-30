@@ -1,31 +1,52 @@
-use std::collections::VecDeque;
-use crate::actors::actor::Actor;
+use crate::actors::{actor, player, friendly, enemy};
+use crate::{actor::Actor, actor::Faction, player::PC, friendly::FNPC, enemy::ENPC};
 
 mod actors;
 mod ui;
 mod world;
 
+fn gameover() {
+    println!("Game Over!");
+}
+
 fn main() {
-    let hp: u32 = 100;
-    let st: u32 = 10;
-    let mut actors: VecDeque<&dyn Actor> = VecDeque::new();
-    
-    let pc = actors::player::PC::new("p1", hp, st);
-    println!("hello player {}!", pc.name());
-    actors.push_front(&pc);
+    // start world and non-actors
+    // start player actors
+    let mut player = PC::new("Player 1", 100, 10, 3, Faction::Player);
+    // start non player actors
+    let mut minion = FNPC::new("Minion 1", 40, 5, 0, Faction::Player);
+    let mut enemy = ENPC::new("Enemy 1", 50, 10, 2, Faction::Enemy);
 
-    let fnpc = actors::friendly::FNPC::new("f1", hp, st);
-    let enpc = actors::enemy::ENPC::new("e1", hp, st);
-    println!("Ally: {}, Enemy: {}", fnpc.name(), enpc.name());
-    actors.push_front(&fnpc);
-    actors.push_front(&enpc);
-
-    // As long as there are active actors, keep going
-    while !actors.is_empty() {
-	// Whoever is at the front of the queue gets to take their turn
-	match actors.pop_front() {
-	    Some(c) => c.get_self().take_turn(&mut actors),
-	    None => (),
+    let mut turn = 1;    
+    while player.alive() && enemy.alive() {
+	println!("\n\n*turn {}*", turn);
+	player.readout();
+	minion.readout();
+	enemy.readout();
+	println!("");
+	
+	player.attack(&mut enemy);
+	// minion turn
+	if minion.alive() && enemy.alive() {
+	    minion.attack(&mut enemy);	
 	}
+	// enemy turn
+	if enemy.alive() && minion.alive() {
+	    enemy.attack(&mut minion);
+	}
+	else if enemy.alive() {
+	    enemy.attack(&mut player);
+	}
+	turn += 1;
     }
+
+    // End game logic
+    if player.alive() {
+	println!("You win!");
+    }
+    else {
+	println!("You lose!");
+    }
+
+    gameover()
 }

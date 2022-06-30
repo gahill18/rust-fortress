@@ -1,17 +1,19 @@
-use std::collections::VecDeque;
 use crate::actors::actor::Actor;
+use crate::actors::actor::Faction;
 
 // Player characters
-#[derive(Debug)]    
 pub struct PC {
     name: &'static str,
     hp:   u32,
     st:   u32,
+    df:   u32,
+    fact: Faction,
 }
 
 impl Actor for PC {
-    fn new(name: &'static str, hp: u32, st: u32) -> Self {
-	PC { name, hp, st }
+    fn new(name: &'static str, hp: u32, st: u32, df: u32, fact: Faction) -> Self {
+	println!("Spawning {}\nhp: {}\nst: {}\n", name, hp, st);
+	PC { name, hp, st, df, fact}
     }
 
     fn name(&self) -> &'static str {
@@ -26,37 +28,29 @@ impl Actor for PC {
 	self.st
     }
 
-    fn attack(&mut self, targ: &mut dyn Actor) -> u32 {
-	if targ.alive() {
-	    let dam = targ.defend(self);
-	    println!("{} dealt {} damage to {}", self.name(), dam, targ.name());
-	    dam
-	}
-	else { 0 }
+    fn defense(&self) -> u32 {
+	self.df
+    }
+
+    fn faction(&self) -> Faction {
+	self.fact
     }
 
     fn take_damage(&mut self, hp: u32) -> u32 {
-	if hp > self.health() {
-	    self.die();
-	    self.health()
+	if hp >= self.health() {
+	    self.hp = 0;
+	    self.die();	    
 	}
 	else {
-	    self.hp -= hp;
-	    hp
-	}
+	    self.hp -= hp;	  
+	};
+	hp
     }
 
     fn friendly(&self, targ: &dyn Actor) -> bool {
-	true
-    }
-
-    fn die(&self) {
-	println!("{} is dead!", self.name());
-    }
-
-    fn take_turn(&mut self, actors: &mut VecDeque<&dyn Actor>) {
-	for c in actors {
-	    println!("{} is taking turn", c.name());
+	match targ.faction() {
+	    Player => true,
+	    Enemy  => false,
 	}
     }
 }
