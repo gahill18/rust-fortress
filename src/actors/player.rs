@@ -1,4 +1,4 @@
-use crate::actors::actor::Actor;
+use crate::actors::actor::*;
 use crate::actors::actor::Faction;
 
 // Player characters
@@ -10,7 +10,7 @@ pub struct PC {
     fact: Faction,
 }
 
-impl Actor for PC {
+impl Actee for PC {
     fn new(name: &'static str, hp: u32, st: u32, df: u32, fact: Faction) -> Self {
 	println!("Spawning {}\nhp: {}\nst: {}\n", name, hp, st);
 	PC { name, hp, st, df, fact}
@@ -46,4 +46,7 @@ impl Actor for PC {
 	};
 	hp
     }
+}
+
+impl Actor for PC {
 }

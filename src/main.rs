@@ -1,4 +1,4 @@
-use crate::scenes::level1::level1;
+use crate::scenes::*;
 
 mod actors;
 mod ui;
@@ -15,9 +15,9 @@ fn gameover() {
 
 fn main() {
     startup();
-    
-    // start world and non-actors    
-    level1();
+        
+    tutorial::tutorial();
+    level1::level1();
     
     gameover();
 }

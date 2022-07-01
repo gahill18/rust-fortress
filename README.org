@@ -9,6 +9,9 @@
 
 *** TODO Game Object Heirarchy
 
+    Consider changing project structure to have actors and player as traits to implement,
+    and different classes/races can implement them to become npc-able/playable
+
    - [ ] World     
      - [ ] Generated Map
        - [ ] Top Down 2D world

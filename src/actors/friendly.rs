@@ -1,4 +1,4 @@
-use crate::actors::actor::Actor;
+use crate::actors::actor::*;
 use crate::actors::actor::Faction;
 
 // Friendly characters
@@ -10,7 +10,7 @@ pub struct FNPC {
     fact: Faction
 }
 
-impl Actor for FNPC {
+impl Actee for FNPC {
     fn new(name: &'static str, hp: u32, st: u32, df: u32, fact: Faction) -> Self {
 	println!("Spawning {}\nhp: {}\nst: {}\ndf: {}\n", name, hp, st, df);
 	FNPC { name, hp, st, df, fact}
@@ -46,4 +46,7 @@ impl Actor for FNPC {
 	};
 	hp
     }
+}
+
+impl Actor for FNPC {
 }
