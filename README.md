@@ -12,12 +12,14 @@
     -   [ ] Generated Map
         -   [ ] Top Down 2D world
         -   [ ] Add height layer
+    -   [ ] Objects
+        -   [ ] Walls
 
--   [ ] Actors
-    -   [ ] Passive creatures
-    -   [ ] Player characters (PCs)
-    -   [ ] Friendly non-player characters (fNPCs)
-    -   [ ] Enemy non-player characters (eNPCs)
+-   Actors
+    -   Player characters (PCs)
+    -   Neutral non-player characters (nNPCs)
+    -   Friendly non-player characters (fNPCs)
+    -   Enemy non-player characters (eNPCs)
 
 -   [ ] UI
     -   [ ] Time/speed indicator
