@@ -1,28 +1,54 @@
-// Things that can be acted upon
+// This thing can move around the map
+pub trait Moveable {
+    fn move_up(&self) {
+	println!("{} moving up", self.name());
+    }
+
+    fn move_down(&self) {
+	println!("{} moving down", self.name());
+    }
+
+    fn move_left(&self) {
+	println!("{} moving left", self.name());
+    }
+
+    fn move_right(&self) {
+	println!("{} moving right", self.name());
+    }
+}
+
+// This thing can be acted upon
 pub trait Actee {
     // Instantiate an actor
     fn new(name: &'static str, hp: u32, st: u32, df: u32, fact: Faction) -> Self where Self: Sized;
     // Return the actor's name
-    fn name(&self)      -> &'static str;
+    fn name(&self)      -> &'static str { "Default Actee Name" }
     // Return the actor's health
-    fn health(&self)    -> u32     { 1 }
+    fn health(&self)    -> u32          { 1 }
     // Return the actor's strength
-    fn strength(&self)  -> u32     { 0 }
+    fn strength(&self)  -> u32          { 0 }
     // Return the actor's defense
-    fn defense(&self)   -> u32     { 0 }
-    fn faction(&self)   -> Faction { Faction::Neutral }
-    // Take damage in a way that will impact the return value of self.health()
-    // Returns how much damage was taken
+    fn defense(&self)   -> u32          { 0 }
+    fn faction(&self)   -> Faction      { Faction::Neutral }
+    // Return how much damage in a way that will impact the return value of self.health()
     fn take_damage(&mut self, hp: u32) -> u32;
     // Is the actor alive?
     fn alive(&self) -> bool {
 	self.health() > 0
     }
     // Is the target actor friendly?
-    fn friendly(&self, targ: &dyn Actor) -> bool {
+    fn friendly(&self, targ: &dyn Actee) -> bool {
 	self.faction() == targ.faction()
     }
-    // Kill the actor. Returns nothing
+    // Is the target actor hostile?
+    fn hostile(&self, targ: &dyn Actee) -> bool {
+	// they're only hostile if the actees arent friendly and neither is neutral
+	!self.friendly(targ) && match (self.faction(), targ.faction()) {	    
+	    (sf, tf) if sf == Faction::Neutral || tf == Faction::Neutral => true,
+	    (_, _) => false,
+	}
+    }
+    // Kill the actor
     fn die(&self) {
 	println!("{} has died!", self.name());
     }
@@ -33,9 +59,7 @@ pub trait Actee {
     }
 }
 
-// Anything that needs to make decisions each turn, i.e. "Acts"
-// Actors must implement Actee (anything that can act on others must be able to be acted on)
-// Includes default implementations where possible/reasonable
+// This thing can perform actions on Actees, and is an Actee itself
 pub trait Actor: Actee {
     // Attack a target, Returns how much damage was dealt
     fn attack(&mut self, targ: &mut dyn Actee) -> u32 {	
@@ -50,8 +74,8 @@ pub trait Actor: Actee {
     }
 }
 
-// Necessary functions for controlling a player character
-pub trait Playable {
+// The player can play as this thing
+pub trait Playable: Actor {
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]
