@@ -12,7 +12,7 @@ pub struct FNPC {
 
 impl Actee for FNPC {
     fn new(name: &'static str, hp: u32, st: u32, df: u32, fact: Faction) -> Self {
-	println!("Spawning {}\nhp: {}\nst: {}\ndf: {}\n", name, hp, st, df);
+	println!("Spawning {}\nhp: {}\nst: {}\ndf: {}\nfaction:{:?}\n", name, hp, st, df, fact);
 	FNPC { name, hp, st, df, fact}
     }
 
@@ -49,4 +49,7 @@ impl Actee for FNPC {
 }
 
 impl Actor for FNPC {
+}
+
+impl Moveable for FNPC {
 }

@@ -1,22 +1,3 @@
-// This thing can move around the map
-pub trait Moveable {
-    fn move_up(&self) {
-	println!("{} moving up", self.name());
-    }
-
-    fn move_down(&self) {
-	println!("{} moving down", self.name());
-    }
-
-    fn move_left(&self) {
-	println!("{} moving left", self.name());
-    }
-
-    fn move_right(&self) {
-	println!("{} moving right", self.name());
-    }
-}
-
 // This thing can be acted upon
 pub trait Actee {
     // Instantiate an actor
@@ -74,8 +55,28 @@ pub trait Actor: Actee {
     }
 }
 
-// The player can play as this thing
-pub trait Playable: Actor {
+// This actor can move around the map
+// This is entirely optional for non-player actors and actees
+pub trait Moveable: Actor {
+    fn move_up(&self) {
+	println!("{} moving up", self.name());
+    }
+
+    fn move_down(&self) {
+	println!("{} moving down", self.name());
+    }
+
+    fn move_left(&self) {
+	println!("{} moving left", self.name());
+    }
+
+    fn move_right(&self) {
+	println!("{} moving right", self.name());
+    }
+}
+
+// The player can directly play as this thing 
+pub trait Playable: Moveable {
 }
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]

@@ -1,5 +1,4 @@
 use crate::actors::actor::*;
-use crate::actors::actor::Faction;
 
 // Player characters
 pub struct PC {
@@ -12,7 +11,7 @@ pub struct PC {
 
 impl Actee for PC {
     fn new(name: &'static str, hp: u32, st: u32, df: u32, fact: Faction) -> Self {
-	println!("Spawning {}\nhp: {}\nst: {}\n", name, hp, st);
+	println!("Spawning {}\nhp: {}\nst: {}\ndf: {}\nfaction:{:?}\n", name, hp, st, df, fact);
 	PC { name, hp, st, df, fact}
     }
 
@@ -27,7 +26,7 @@ impl Actee for PC {
     fn strength(&self) -> u32 {
 	self.st
     }
-
+ 
     fn defense(&self) -> u32 {
 	self.df
     }
@@ -49,4 +48,10 @@ impl Actee for PC {
 }
 
 impl Actor for PC {
+}
+
+impl Moveable for PC {
+}
+
+impl Playable for PC {
 }

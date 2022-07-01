@@ -12,7 +12,7 @@ pub struct ENPC {
 
 impl Actee for ENPC {
     fn new(name: &'static str, hp: u32, st: u32, df: u32, fact: Faction) -> Self {
-	println!("Spawning {}\nhp: {}\nst: {}\ndf: {}", name, hp, st, df);
+	println!("Spawning {}\nhp: {}\nst: {}\ndf: {}\nfaction:{:?}\n", name, hp, st, df, fact);
 	ENPC { name, hp, st, df, fact }
     }
 
@@ -49,4 +49,7 @@ impl Actee for ENPC {
 }
 
 impl Actor for ENPC {
+}
+
+impl Moveable for ENPC {
 }
