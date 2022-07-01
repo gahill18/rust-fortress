@@ -46,11 +46,4 @@ impl Actor for PC {
 	};
 	hp
     }
-
-    fn friendly(&self, targ: &dyn Actor) -> bool {
-	match targ.faction() {
-	    Player => true,
-	    Enemy  => false,
-	}
-    }
 }
