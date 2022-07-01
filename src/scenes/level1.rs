@@ -2,6 +2,7 @@ use crate::actors::{actor, player, friendly, enemy};
 use {actor::Actor, actor::Faction, player::PC, friendly::FNPC, enemy::ENPC};
 
 pub fn level1() {
+    println!("*LEVEL 1*");
     // start player actors
     let mut player = PC::new("Player 1", 100, 10, 3, Faction::Player);
     // start non player actors

@@ -6,7 +6,7 @@ mod world;
 mod scenes;
 
 fn startup() {
-    println!("Starting Game!");
+    println!("Starting Game!\n");
 }
 
 fn gameover() {

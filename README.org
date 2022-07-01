@@ -16,11 +16,11 @@
      - [ ] Objects
        - [ ] Walls
 	      
-   - [ ] Actors
-     - [ ] Passive creatures
-     - [ ] Player characters (PCs)
-     - [ ] Friendly non-player characters (fNPCs)
-     - [ ] Enemy non-player characters (eNPCs)
+   - [x] Actors
+     - [x] Player characters (PCs)
+     - [x] Neutral non-player characters (nNPCs)
+     - [x] Friendly non-player characters (fNPCs)
+     - [x] Enemy non-player characters (eNPCs)
 	 
    - [ ] UI
      - [ ] Time/speed indicator
